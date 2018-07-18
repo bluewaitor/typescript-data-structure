@@ -4,3 +4,4 @@ export * from './data-structures/linked-list/LinkedList';
 export * from './data-structures/doubly-linked-list/DoublyLinkedListNode';
 export * from './data-structures/doubly-linked-list/DoublyLinkedList';
 export * from './data-structures/stack/Stack';
+export * from './data-structures/queue/Queue';
