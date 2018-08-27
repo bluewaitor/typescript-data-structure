@@ -14,6 +14,7 @@ class HashTable {
    */
   constructor(hashTableSize = defaultHashTableSize) {
     // 数组里面是单链表，解决哈希冲突
+    // @ts-ignore
     this.buckets = Array(hashTableSize).fill(null).map(() => new LinkedList());
     this.keys = {}
   }
@@ -24,7 +25,8 @@ class HashTable {
    * @returns {number}
    */
   hash(key: string) {
-    const hash = Array.from(key).reduce((hashAccumulator, keySymbol) => (hashAccumulator + keySymbol.charCodeAt(0)), 0)
+    // @ts-ignore
+    const hash = Array.from(key).reduce((hashAccumulator, keySymbol) => (hashAccumulator + keySymbol.charCodeAt(0)), 0);
     return hash % this.buckets.length;
   }
 
