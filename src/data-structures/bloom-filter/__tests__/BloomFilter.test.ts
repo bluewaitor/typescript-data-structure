@@ -41,18 +41,18 @@ describe("BloomFilter", () => {
     expect(bloomFilter.hash3(str2)).toBe(10);
   });
 
-  it('should create an array with 3 hash values', () => {
-    expect(bloomFilter.getHashValues('abc').length).toBe(3);
-    expect(bloomFilter.getHashValues('abc')).toEqual([66, 63, 54]);
+  it("should create an array with 3 hash values", () => {
+    expect(bloomFilter.getHashValues("abc").length).toBe(3);
+    expect(bloomFilter.getHashValues("abc")).toEqual([66, 63, 54]);
   });
 
-  it('should insert strings correctly and return true when checking for inserted values', () => {
+  it("should insert strings correctly and return true when checking for inserted values", () => {
     people.forEach(person => bloomFilter.insert(person));
 
-    expect(bloomFilter.mayContain('Bruce Wayne')).toBe(true);
-    expect(bloomFilter.mayContain('Clark Kent')).toBe(true);
-    expect(bloomFilter.mayContain('Barry Allen')).toBe(true);
+    expect(bloomFilter.mayContain("Bruce Wayne")).toBe(true);
+    expect(bloomFilter.mayContain("Clark Kent")).toBe(true);
+    expect(bloomFilter.mayContain("Barry Allen")).toBe(true);
 
-    expect(bloomFilter.mayContain('Tony Stark')).toBe(false);
+    expect(bloomFilter.mayContain("Tony Stark")).toBe(false);
   });
 });
