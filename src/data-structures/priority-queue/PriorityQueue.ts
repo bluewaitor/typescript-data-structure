@@ -2,7 +2,7 @@ import MinHeap from '../heap/MinHeap';
 import Comparator from '../../utils/comparator/Comparator';
 
 class PriorityQueue extends MinHeap {
-  priorities: Object;
+  priorities: object;
   constructor() {
     super();
     this.priorities = {};

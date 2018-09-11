@@ -2,7 +2,7 @@ import DisjointSetItem from "./DisjointSetItem";
 
 class DisjointSet {
   keyCallBack: Function;
-  items: Object;
+  items: object;
 
   constructor(keyCallBack = null) {
     this.keyCallBack = keyCallBack;
