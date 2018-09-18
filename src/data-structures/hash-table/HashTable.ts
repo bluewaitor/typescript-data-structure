@@ -1,4 +1,4 @@
-import LinkedList from '../linked-list/LinkedList';
+import {LinkedList} from '../linked-list/LinkedList';
 
 // 默认数组大小
 const defaultHashTableSize = 32;

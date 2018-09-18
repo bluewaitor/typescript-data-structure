@@ -1,4 +1,4 @@
-class DoublyLinkedListNode {
+export class DoublyLinkedListNode {
   value: any;
   next: DoublyLinkedListNode;
   previous: DoublyLinkedListNode;
@@ -12,5 +12,3 @@ class DoublyLinkedListNode {
     return callback ? callback(this.value) : `${this.value}`;
   }
 }
-
-export default DoublyLinkedListNode;

@@ -1,4 +1,4 @@
-class LinkedListNode {
+export class LinkedListNode {
   value: any;
   next: LinkedListNode;
   constructor(value, next = null) {
@@ -10,5 +10,3 @@ class LinkedListNode {
     return callback ? callback(this.value) : `${this.value}`;
   }
 }
-
-export default LinkedListNode;

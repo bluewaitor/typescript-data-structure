@@ -1,4 +1,4 @@
-import DoublyLinkedList from "../DoublyLinkedList";
+import {DoublyLinkedList} from "../DoublyLinkedList";
 
 describe('DoublyLinkedList', () => {
   it('should create empty linked list', () => {

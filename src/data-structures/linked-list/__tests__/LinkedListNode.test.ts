@@ -1,4 +1,4 @@
-import LinkedListNode from "../LinkedListNode";
+import {LinkedListNode} from "../LinkedListNode";
 
 describe("LinkedListNode", () => {
   test("should create list node with value", () => {

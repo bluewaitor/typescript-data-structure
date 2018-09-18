@@ -1,7 +1,7 @@
-import LinkedListNode from "./LinkedListNode";
-import Comparator from "../../utils/comparator/Comparator";
+import {LinkedListNode} from "./LinkedListNode";
+import {Comparator} from "../../utils/comparator/Comparator";
 
-class LinkedList {
+export class LinkedList {
   head: LinkedListNode;
   tail: LinkedListNode;
   compare: Comparator;
@@ -180,5 +180,3 @@ class LinkedList {
       .toString();
   }
 }
-
-export default LinkedList;

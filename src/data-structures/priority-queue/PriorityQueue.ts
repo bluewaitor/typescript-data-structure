@@ -1,5 +1,5 @@
 import MinHeap from '../heap/MinHeap';
-import Comparator from '../../utils/comparator/Comparator';
+import {Comparator} from '../../utils/comparator/Comparator';
 
 class PriorityQueue extends MinHeap {
   priorities: object;

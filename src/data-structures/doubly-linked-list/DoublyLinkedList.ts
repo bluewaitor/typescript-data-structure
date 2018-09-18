@@ -1,7 +1,7 @@
-import Comparator from "../../utils/comparator/Comparator";
-import DoublyLinkedListNode from "./DoublyLinkedListNode";
+import {Comparator} from "../../utils/comparator/Comparator";
+import {DoublyLinkedListNode} from "./DoublyLinkedListNode";
 
-class DoublyLinkedList {
+export class DoublyLinkedList {
   head: DoublyLinkedListNode;
   tail: DoublyLinkedListNode;
   compare: Comparator;
@@ -160,5 +160,3 @@ class DoublyLinkedList {
     return this.toArray().map(node => node.toString(callback)).toString();
   }
 }
-
-export default DoublyLinkedList;
