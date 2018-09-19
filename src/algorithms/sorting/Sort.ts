@@ -1,6 +1,6 @@
-import {Comparator} from "../../utils/comparator/Comparator";
+import { Comparator } from "../../utils/comparator/Comparator";
 
-class Sort {
+export class Sort {
   callbacks: {
     compareCallback: Function;
     visitingCallback: Function;
@@ -25,5 +25,3 @@ class Sort {
     throw new Error("sort method must be implemented");
   }
 }
-
-export default Sort;

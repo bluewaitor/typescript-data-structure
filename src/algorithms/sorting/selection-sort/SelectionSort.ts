@@ -1,6 +1,6 @@
-import Sort from '../Sort';
+import { Sort } from "../Sort";
 
-export default class SelectionSort extends Sort {
+export class SelectionSort extends Sort {
   sort(originalArray) {
     const array = [...originalArray];
 
@@ -9,7 +9,7 @@ export default class SelectionSort extends Sort {
 
       this.callbacks.visitingCallback(array[i]);
 
-      for(let j = i + 1; j < array.length; j += 1) {
+      for (let j = i + 1; j < array.length; j += 1) {
         this.callbacks.visitingCallback(array[j]);
 
         if (this.comparator.lessThan(array[j], array[minIndex])) {

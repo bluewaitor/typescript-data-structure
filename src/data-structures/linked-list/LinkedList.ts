@@ -1,5 +1,5 @@
-import {LinkedListNode} from "./LinkedListNode";
-import {Comparator} from "../../utils/comparator/Comparator";
+import { LinkedListNode } from "./LinkedListNode";
+import { Comparator } from "../../utils/comparator/Comparator";
 
 export class LinkedList {
   head: LinkedListNode;
@@ -83,7 +83,7 @@ export class LinkedList {
   /**
    * 查找，返回找到的节点
    * @param {Object} findParams
-   * @param {*} findParams.value 
+   * @param {*} findParams.value
    * @param {function} [findParams.callback] 根据callback的值返回查找结果
    * @param {LinkedListNode}
    */
@@ -172,7 +172,7 @@ export class LinkedList {
 
   /**
    * 转换为字符串
-   * @param callback 
+   * @param callback
    */
   toString(callback?) {
     return this.toArray()

@@ -1,13 +1,13 @@
-import PriorityQueue from '../PriorityQueue';
+import { PriorityQueue } from "../PriorityQueue";
 
-describe('PriorityQueue', () => {
-  it('should create default priority queue', () => {
+describe("PriorityQueue", () => {
+  it("should create default priority queue", () => {
     const priorityQueue = new PriorityQueue();
 
     expect(priorityQueue).toBeDefined();
   });
 
-  it('should insert items to the queue and respect priorities', () => {
+  it("should insert items to the queue and respect priorities", () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
@@ -20,7 +20,7 @@ describe('PriorityQueue', () => {
     expect(priorityQueue.peek()).toBe(100);
   });
 
-  it('should poll item from queue with respect to priorities', () => {
+  it("should poll item from queue with respect to priorities", () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
@@ -35,7 +35,7 @@ describe('PriorityQueue', () => {
     expect(priorityQueue.poll()).toBeNull();
   });
 
-  it('should be possible to change priority of internal nodes', () => {
+  it("should be possible to change priority of internal nodes", () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
@@ -52,7 +52,7 @@ describe('PriorityQueue', () => {
     expect(priorityQueue.poll()).toBe(10);
   });
 
-  it('should be possible to change priority along with node addition', () => {
+  it("should be possible to change priority along with node addition", () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);
@@ -72,7 +72,7 @@ describe('PriorityQueue', () => {
     expect(priorityQueue.poll()).toBe(10);
   });
 
-  it('should be possible to search in priority queue by value', () => {
+  it("should be possible to search in priority queue by value", () => {
     const priorityQueue = new PriorityQueue();
 
     priorityQueue.add(10, 1);

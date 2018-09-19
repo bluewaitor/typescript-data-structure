@@ -1,14 +1,14 @@
-import MinHeap from '../heap/MinHeap';
-import {Comparator} from '../../utils/comparator/Comparator';
+import { MinHeap } from "../heap/MinHeap";
+import { Comparator } from "../../utils/comparator/Comparator";
 
-class PriorityQueue extends MinHeap {
+export class PriorityQueue extends MinHeap {
   priorities: object;
   constructor() {
     super();
     this.priorities = {};
     this.compare = new Comparator(this.comparePriority.bind(this));
   }
-  
+
   add(item, priority = 0) {
     this.priorities[item] = priority;
     super.add(item);
@@ -50,8 +50,6 @@ class PriorityQueue extends MinHeap {
       return 0;
     }
 
-    return a < b ? -1: 1;
+    return a < b ? -1 : 1;
   }
 }
-
-export default PriorityQueue;

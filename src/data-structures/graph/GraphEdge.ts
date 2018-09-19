@@ -1,6 +1,6 @@
-import GraphVertex from "./GraphVertex";
+import { GraphVertex } from "./GraphVertex";
 
-class GraphEdge {
+export class GraphEdge {
   startVertex: GraphVertex;
   endVertex: GraphVertex;
   weight: number;
@@ -29,5 +29,3 @@ class GraphEdge {
     return this.getKey();
   }
 }
-
-export default GraphEdge;

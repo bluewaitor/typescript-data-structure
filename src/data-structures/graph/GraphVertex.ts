@@ -1,20 +1,19 @@
-import {LinkedList} from '../linked-list/LinkedList';
-import GraphEdge from './GraphEdge';
+import { LinkedList } from "../linked-list/LinkedList";
+import { GraphEdge } from "./GraphEdge";
 
-class GraphVertex {
-
+export class GraphVertex {
   value: any;
   edges: LinkedList;
 
   constructor(value?) {
     if (value === undefined) {
-      throw new Error('Graph vertex must have a value');
+      throw new Error("Graph vertex must have a value");
     }
     const edgeComparator = (edgeA, edgeB) => {
       if (edgeA.getKey() === edgeB.getKey()) {
         return 0;
       }
-  
+
       return edgeA.getKey() < edgeB.getKey() ? -1 : 1;
     };
 
@@ -26,7 +25,7 @@ class GraphVertex {
     this.edges.append(edge);
     return this;
   }
-  
+
   deleteEdge(edge: GraphEdge) {
     this.edges.delete(edge);
   }
@@ -34,9 +33,11 @@ class GraphVertex {
   getNeighbors() {
     const edges = this.edges.toArray();
 
-    const neighborsConverter = (node) => {
-      return node.value.startVertex === this ? node.value.endVertex : node.value.startVertex;
-    }
+    const neighborsConverter = node => {
+      return node.value.startVertex === this
+        ? node.value.endVertex
+        : node.value.startVertex;
+    };
 
     return edges.map(neighborsConverter);
   }
@@ -51,12 +52,12 @@ class GraphVertex {
 
   hasEdge(requiredEdge) {
     const edgeNode = this.edges.find({
-      callback: edge => edge === requiredEdge,
+      callback: edge => edge === requiredEdge
     });
 
     return !!edgeNode;
   }
-  
+
   hasNeighbor(vertex) {
     const vertexNode = this.edges.find({
       callback: edge => edge.startVertex === vertex || edge.endVertex === vertex
@@ -66,11 +67,11 @@ class GraphVertex {
   }
 
   findEdge(vertex) {
-    const edgeFinder = (edge) => {
+    const edgeFinder = edge => {
       return edge.startVertex === vertex || edge.endVertex === vertex;
-    }
+    };
 
-    const edge = this.edges.find({callback: edgeFinder});
+    const edge = this.edges.find({ callback: edgeFinder });
 
     return edge ? edge.value : null;
   }
@@ -88,5 +89,3 @@ class GraphVertex {
     return callback ? callback(this.value) : `${this.value}`;
   }
 }
-
-export default GraphVertex;

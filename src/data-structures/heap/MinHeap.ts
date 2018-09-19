@@ -1,6 +1,6 @@
-import {Comparator} from '../../utils/comparator/Comparator';
+import { Comparator } from "../../utils/comparator/Comparator";
 
-class MinHeap {
+export class MinHeap {
   heapContainer: Array<any>;
   compare: Comparator;
   constructor(compareFunction?) {
@@ -85,15 +85,26 @@ class MinHeap {
     const numberOfItemsToRemove = indicesToRemove.length;
     for (let iteration = 0; iteration < numberOfItemsToRemove; iteration += 1) {
       const indexToRemove = this.find(item, customComparator).pop();
-      if (indexToRemove === (this.heapContainer.length - 1)) {
+      if (indexToRemove === this.heapContainer.length - 1) {
         this.heapContainer.pop();
       } else {
         this.heapContainer[indexToRemove] = this.heapContainer.pop();
 
-        const parentItem = this.hasParent(indexToRemove) ? this.parent(indexToRemove) : null;
-        const leftChild = this.hasLeftChild(indexToRemove) ? this.leftChild(indexToRemove) : null;
+        const parentItem = this.hasParent(indexToRemove)
+          ? this.parent(indexToRemove)
+          : null;
+        const leftChild = this.hasLeftChild(indexToRemove)
+          ? this.leftChild(indexToRemove)
+          : null;
 
-        if (leftChild !== null && (parentItem === null || this.compare.lessThan(parentItem, this.heapContainer[indexToRemove]))) {
+        if (
+          leftChild !== null &&
+          (parentItem === null ||
+            this.compare.lessThan(
+              parentItem,
+              this.heapContainer[indexToRemove]
+            ))
+        ) {
           this.heapifyDown(indexToRemove);
         } else {
           this.heapifyUp(indexToRemove);
@@ -108,7 +119,11 @@ class MinHeap {
     const foundItemindices = [];
     const comparator = customComparator || this.compare;
 
-    for (let itemIndex = 0; itemIndex < this.heapContainer.length; itemIndex += 1) {
+    for (
+      let itemIndex = 0;
+      itemIndex < this.heapContainer.length;
+      itemIndex += 1
+    ) {
       if (comparator.equal(item, this.heapContainer[itemIndex])) {
         foundItemindices.push(itemIndex);
       }
@@ -122,13 +137,24 @@ class MinHeap {
     let nextIndex = null;
 
     while (this.hasLeftChild(currentIndex)) {
-      if (this.hasRightChild(currentIndex) && this.compare.lessThan(this.rightChild(currentIndex), this.leftChild(currentIndex))) {
-        nextIndex = this.getRightChildIndex(currentIndex)
+      if (
+        this.hasRightChild(currentIndex) &&
+        this.compare.lessThan(
+          this.rightChild(currentIndex),
+          this.leftChild(currentIndex)
+        )
+      ) {
+        nextIndex = this.getRightChildIndex(currentIndex);
       } else {
         nextIndex = this.getLeftChildIndex(currentIndex);
       }
 
-      if (this.compare.lessThan(this.heapContainer[currentIndex], this.heapContainer[nextIndex])) {
+      if (
+        this.compare.lessThan(
+          this.heapContainer[currentIndex],
+          this.heapContainer[nextIndex]
+        )
+      ) {
         break;
       }
 
@@ -140,7 +166,13 @@ class MinHeap {
   heapifyUp(customStartIndex?) {
     let currentIndex = customStartIndex || this.heapContainer.length - 1;
 
-    while(this.hasParent(currentIndex) && this.compare.lessThan(this.heapContainer[currentIndex], this.parent(currentIndex))) {
+    while (
+      this.hasParent(currentIndex) &&
+      this.compare.lessThan(
+        this.heapContainer[currentIndex],
+        this.parent(currentIndex)
+      )
+    ) {
       this.swap(currentIndex, this.getParentIndex(currentIndex));
       currentIndex = this.getParentIndex(currentIndex);
     }
@@ -154,5 +186,3 @@ class MinHeap {
     return this.heapContainer.toString();
   }
 }
-
-export default MinHeap;

@@ -1,5 +1,5 @@
-import {Comparator} from "../../utils/comparator/Comparator";
-import {DoublyLinkedListNode} from "./DoublyLinkedListNode";
+import { Comparator } from "../../utils/comparator/Comparator";
+import { DoublyLinkedListNode } from "./DoublyLinkedListNode";
 
 export class DoublyLinkedList {
   head: DoublyLinkedListNode;
@@ -82,7 +82,7 @@ export class DoublyLinkedList {
     return deleteNode;
   }
 
-  find({value = undefined, callback = undefined}) {
+  find({ value = undefined, callback = undefined }) {
     if (!this.head) {
       return null;
     }
@@ -157,6 +157,8 @@ export class DoublyLinkedList {
   }
 
   toString(callback?) {
-    return this.toArray().map(node => node.toString(callback)).toString();
+    return this.toArray()
+      .map(node => node.toString(callback))
+      .toString();
   }
 }

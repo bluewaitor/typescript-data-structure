@@ -1,4 +1,4 @@
-class DisjointSetItem {
+export class DisjointSetItem {
   value: any;
   keyCallBack: Function;
   parent: DisjointSetItem;
@@ -44,7 +44,7 @@ class DisjointSetItem {
     }
     let rank = 0;
 
-    this.getChildren().forEach((child) => {
+    this.getChildren().forEach(child => {
       rank += 1;
       rank += child.getRank();
     });
@@ -68,5 +68,3 @@ class DisjointSetItem {
     return this;
   }
 }
-
-export default DisjointSetItem;

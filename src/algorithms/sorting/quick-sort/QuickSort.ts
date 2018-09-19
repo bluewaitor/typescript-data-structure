@@ -1,6 +1,6 @@
-import Sort from '../Sort';
+import { Sort } from "../Sort";
 
-export default class QuickSort extends Sort {
+export class QuickSort extends Sort {
   sort(originalArray) {
     const array = [...originalArray];
 
@@ -14,7 +14,7 @@ export default class QuickSort extends Sort {
     const pivotElement = array.shift();
     const centerArray = [pivotElement];
 
-    while(array.length) {
+    while (array.length) {
       const currentElement = array.shift();
 
       this.callbacks.visitingCallback(currentElement);

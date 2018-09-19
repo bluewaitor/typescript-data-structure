@@ -1,6 +1,6 @@
-import DisjointSetItem from "./DisjointSetItem";
+import { DisjointSetItem } from "./DisjointSetItem";
 
-class DisjointSet {
+export class DisjointSet {
   keyCallBack: Function;
   items: object;
 
@@ -20,7 +20,10 @@ class DisjointSet {
   }
 
   find(itemValue) {
-    const templateDisjointItem = new DisjointSetItem(itemValue, this.keyCallBack);
+    const templateDisjointItem = new DisjointSetItem(
+      itemValue,
+      this.keyCallBack
+    );
 
     const requiredDisjointItem = this.items[templateDisjointItem.getKey()];
     if (!requiredDisjointItem) {
@@ -35,7 +38,7 @@ class DisjointSet {
     const rootKeyB = this.find(valueB);
 
     if (rootKeyA === null || rootKeyB === null) {
-      throw new Error('One or two values are not in sets');
+      throw new Error("One or two values are not in sets");
     }
 
     if (rootKeyA === rootKeyB) {
@@ -60,11 +63,9 @@ class DisjointSet {
     const rootKeyB = this.find(valueB);
 
     if (rootKeyA === null || rootKeyB === null) {
-      throw new Error('One or two values are not in sets');
+      throw new Error("One or two values are not in sets");
     }
 
     return rootKeyA === rootKeyB;
   }
 }
-
-export default DisjointSet;

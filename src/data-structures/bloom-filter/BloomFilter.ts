@@ -1,8 +1,8 @@
-class BloomFilter {
+export class BloomFilter {
   size: number;
   storage: {
-    getValue: Function,
-    setValue: Function
+    getValue: Function;
+    setValue: Function;
   };
 
   constructor(size = 100) {
@@ -86,5 +86,3 @@ class BloomFilter {
     return true;
   }
 }
-
-export default BloomFilter;

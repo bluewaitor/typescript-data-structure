@@ -1,6 +1,6 @@
-import {LinkedList} from '../linked-list/LinkedList';
+import { LinkedList } from "../linked-list/LinkedList";
 
-class Stack {
+export class Stack {
   linkedList: LinkedList;
   constructor() {
     this.linkedList = new LinkedList();
@@ -24,16 +24,16 @@ class Stack {
 
   pop() {
     const deleteTail = this.linkedList.deleteTail();
-    return deleteTail ? deleteTail.value: null;
+    return deleteTail ? deleteTail.value : null;
   }
 
   toArray() {
-    return this.linkedList.toArray().map(linkedListNode => linkedListNode.value);
+    return this.linkedList
+      .toArray()
+      .map(linkedListNode => linkedListNode.value);
   }
 
   toString(callback?) {
     return this.linkedList.toString(callback);
   }
 }
-
-export default Stack;

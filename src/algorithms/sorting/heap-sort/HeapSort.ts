@@ -1,19 +1,19 @@
-import Sort from '../Sort';
-import MinHeap from '../../../data-structures/heap/MinHeap';
+import { Sort } from "../Sort";
+import { MinHeap } from "../../../data-structures/heap/MinHeap";
 
-export default class HeapSort extends Sort {
+export class HeapSort extends Sort {
   sort(originalArray) {
     const sortedArray = [];
 
     const minHeap = new MinHeap(this.callbacks.compareCallback);
 
-    originalArray.forEach((element) => {
+    originalArray.forEach(element => {
       this.callbacks.visitingCallback(element);
 
       minHeap.add(element);
     });
 
-    while(!minHeap.isEmpty()) {
+    while (!minHeap.isEmpty()) {
       const nextMinElement = minHeap.poll();
 
       this.callbacks.visitingCallback(nextMinElement);

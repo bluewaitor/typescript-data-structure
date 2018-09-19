@@ -1,10 +1,9 @@
-import {LinkedList} from '../linked-list/LinkedList';
+import { LinkedList } from "../linked-list/LinkedList";
 
 // 默认数组大小
 const defaultHashTableSize = 32;
 
-
-class HashTable {
+export class HashTable {
   buckets: Array<LinkedList>;
   keys: object;
 
@@ -15,8 +14,10 @@ class HashTable {
   constructor(hashTableSize = defaultHashTableSize) {
     // 数组里面是单链表，解决哈希冲突
     // @ts-ignore
-    this.buckets = Array(hashTableSize).fill(null).map(() => new LinkedList());
-    this.keys = {}
+    this.buckets = Array(hashTableSize)
+      .fill(null)
+      .map(() => new LinkedList());
+    this.keys = {};
   }
 
   /**
@@ -26,7 +27,10 @@ class HashTable {
    */
   hash(key: string) {
     // @ts-ignore
-    const hash = Array.from(key).reduce((hashAccumulator, keySymbol) => (hashAccumulator + keySymbol.charCodeAt(0)), 0);
+    const hash = Array.from(key).reduce(
+      (hashAccumulator, keySymbol) => hashAccumulator + keySymbol.charCodeAt(0),
+      0
+    );
     return hash % this.buckets.length;
   }
 
@@ -39,10 +43,12 @@ class HashTable {
     const keyHash = this.hash(key);
     this.keys[key] = keyHash;
     const bucketLinkedList = this.buckets[keyHash];
-    const node = bucketLinkedList.find({callback: nodeValue => nodeValue.key === key});
+    const node = bucketLinkedList.find({
+      callback: nodeValue => nodeValue.key === key
+    });
 
     if (!node) {
-      bucketLinkedList.append({key, value});
+      bucketLinkedList.append({ key, value });
     } else {
       node.value.value = value;
     }
@@ -57,7 +63,9 @@ class HashTable {
     const keyHash = this.hash(key);
     delete this.keys[key];
     const bucketLinkedList = this.buckets[keyHash];
-    const node = bucketLinkedList.find({callback: nodeValue => nodeValue.key === key});
+    const node = bucketLinkedList.find({
+      callback: nodeValue => nodeValue.key === key
+    });
 
     if (node) {
       return bucketLinkedList.delete(node.value);
@@ -74,7 +82,9 @@ class HashTable {
   get(key) {
     const keyHash = this.hash(key);
     const bucketLinkedList = this.buckets[keyHash];
-    const node = bucketLinkedList.find({callback: nodeValue => nodeValue.key === key});
+    const node = bucketLinkedList.find({
+      callback: nodeValue => nodeValue.key === key
+    });
     return node ? node.value.value : undefined;
   }
 
@@ -95,5 +105,3 @@ class HashTable {
     return Object.keys(this.keys);
   }
 }
-
-export default HashTable;

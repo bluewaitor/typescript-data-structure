@@ -1,6 +1,6 @@
-import Sort from "../Sort";
+import { Sort } from "../Sort";
 
-class BubbleSort extends Sort {
+export class BubbleSort extends Sort {
   sort(originalArray) {
     let swapped = false;
     const array = [...originalArray];
@@ -29,5 +29,3 @@ class BubbleSort extends Sort {
     return array;
   }
 }
-
-export default BubbleSort;

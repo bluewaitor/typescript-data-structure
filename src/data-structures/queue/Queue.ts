@@ -1,6 +1,6 @@
-import {LinkedList} from "../linked-list/LinkedList";
+import { LinkedList } from "../linked-list/LinkedList";
 
-class Queue {
+export class Queue {
   linkedList: LinkedList;
   constructor() {
     this.linkedList = new LinkedList();
@@ -23,12 +23,10 @@ class Queue {
 
   dequeue() {
     const deleteHead = this.linkedList.deleteHead();
-    return deleteHead ? deleteHead.value: null;
+    return deleteHead ? deleteHead.value : null;
   }
 
   toString(callback?) {
     return this.linkedList.toString(callback);
   }
 }
-
-export default Queue;
